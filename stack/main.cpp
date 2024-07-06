@@ -2,22 +2,23 @@
 using namespace std;
 
 int topIndex = -1;
-int stack[4]; // 0,0,0,0
+int length = 3;
+int stack[2]; // 0,0,0,0
 
 int push(int data) {
-  if (topIndex <= 2) {
+  if (topIndex <  length-1) {
     topIndex++;
     stack[topIndex] = data;
     return data;
   } else {
-    cout << "Can not insert at this position where current index is "
+    cout << "Can not insert at this position where current index is"
          << topIndex << endl;
     return -1;
   }
 }
 
 int peek() {
-  if (topIndex <= 3 && topIndex > -1) {
+  if (topIndex < length-1 && topIndex > -1) {
     return stack[topIndex];
   } else {
     cout << "Invalid Range";
@@ -38,6 +39,12 @@ int pop() {
 }
 int main() {
   push(23);// -1 
-  cout<<pop()<<endl;
-  cout << pop()<<endl;
+  cout<<topIndex<<endl;
+  push(233);// -1 
+  cout<<topIndex<<endl;
+  push(2334);// -1 
+  cout<<topIndex<<endl;
+  push(23);// -1 
+  cout<<topIndex<<endl;
+ 
 }
